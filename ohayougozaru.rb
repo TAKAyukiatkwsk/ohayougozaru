@@ -11,16 +11,13 @@ config = Pit.get("twitter_oauth", :require => {
   "token" => "your access token",
   "secret" => "your access secret"
 })
-#p config 
+
 t = TwitterOAuth::Client.new({
   :consumer_key => config['consumer_key'],
   :consumer_secret => config['consumer_secret'],
   :token => config['token'],
   :secret => config['secret']
 })
-#p t
-#p t.authorized?
-#exit
 
 if t.authorized?
   t.update 'おはようござる！' 
